@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+  avatar_url: String
+  phone_number: String
+  about_me: String
+}
+
+type Query {
+  users(offset: Float, limit: Float): [User!]!
+  user_by_email(email: String!): User!
+  user_by_id(id: String!): User!
+}
+
+type Mutation {
+  create_user(user_data: CreateUserInput!): User!
+  update_user(email: String!, update_user_data: UpdateUserInput!): Boolean!
+  delete_user(email: String!): Boolean!
+}
+
+input CreateUserInput {
+  email: String!
+  name: String!
+}
+
+input UpdateUserInput {
+  name: String
+  avatar_url: String
+  phone_number: String
+  about_me: String
+}

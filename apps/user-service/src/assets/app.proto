@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc findById (findUser) returns (findUserRes);
+    rpc createUser (createUser) returns (createUserRes);
+};
+
+message findUser {
+    string id = 1;
+}
+
+message findUserRes{
+    bool found = 1;
+}
+
+message createUser {
+    string name = 1;
+    string email = 2;
+}
+
+message createUserRes {
+    bool success = 1;
+}
