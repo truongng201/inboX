@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type Room {
+  id: String!
+  channels: [Channel!]
+}
+
+type Channel {
+  id: String!
+  channel_name: String!
+  room_id: String!
+  room: Room!
+  members_list: String
+  private: Boolean!
+  channel_type: String!
+  channel_des: String
+}
+
+type Query {
+  channels(offset: Float, limit: Float): [Channel!]!
+  channel(channel_id: String!): Channel!
+}
+
+type Mutation {
+  create_channel(data: CreateChannelInput!): Channel!
+  update_channel(data: UpdateChannelInput!, channel_id: String!): Boolean!
+  delete_channel(channel_id: String!): Boolean!
+}
+
+input CreateChannelInput {
+  channel_name: String!
+  channel_type: String!
+  private: Boolean!
+  room_id: String!
+}
+
+input UpdateChannelInput {
+  channel_name: String
+  channel_type: String
+  private: Boolean
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package channel;
+
+service ChannelService {
+    rpc createChannel (createChannel) returns (createChannelRes);
+};
+
+message createChannel {
+    string channelName = 1;
+    string channelType = 2;
+    bool private = 3;
+    string roomId = 4;
+}
+
+message createChannelRes {
+    bool success = 1;
+}

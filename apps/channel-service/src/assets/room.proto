@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package room;
+
+service RoomService {
+    rpc findById (findRoom) returns (findRoomRes);
+};
+
+message findRoom {
+    string id = 1;
+}
+
+message findRoomRes{
+    bool found = 1;
+}
