@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type User {
+  id: String!
+  rooms: [Room!]!
+}
+
+type Room {
+  id: String!
+  room_name: String!
+  room_owner: User!
+  room_owner_id: String!
+  room_avt_url: String
+  members_id: String
+}
+
+type Query {
+  rooms(offset: Float, limit: Float): [Room!]!
+  room(room_id: String!): Room!
+}
+
+type Mutation {
+  create_room(data: CreateRoomInput!): Room!
+  update_room(data: UpdateRoomInput!, room_id: String!): Boolean!
+  delete_room(room_id: String!): Boolean!
+}
+
+input CreateRoomInput {
+  room_owner_id: String!
+  room_name: String!
+}
+
+input UpdateRoomInput {
+  room_name: String
+}

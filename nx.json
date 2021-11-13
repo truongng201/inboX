@@ -29,5 +29,5 @@
       }
     ]
   },
-  "defaultProject": "user-service"
+  "defaultProject": "api-gateway"
 }

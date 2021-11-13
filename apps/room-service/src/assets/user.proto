@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc findById (findUser) returns (findUserRes);
+};
+
+message findUser {
+    string id = 1;
+}
+
+message findUserRes{
+    bool found = 1;
+}
+
