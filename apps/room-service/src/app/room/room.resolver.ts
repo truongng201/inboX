@@ -50,7 +50,7 @@ export class RoomResolver {
   async updateRoom(
     @Args("room_id") room_id: string,
     @Args("data") data: UpdateRoomInput
-  ): Promise<Boolean> {
+  ): Promise<boolean> {
     try {
       await this.roomService.update(room_id, data);
       return true;
@@ -62,7 +62,7 @@ export class RoomResolver {
   @Mutation(() => Boolean, { name: "delete_room" })
   async deleteRoom(
     @Args("room_id", { type: () => String }) room_id: string
-  ): Promise<Boolean> {
+  ): Promise<boolean> {
     try {
       await this.roomService.delete(room_id);
       return true;

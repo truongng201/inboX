@@ -2,7 +2,6 @@
   "version": 2,
   "projects": {
     "api-gateway": "apps/api-gateway",
-    "auth-service": "apps/auth-service",
     "channel-service": "apps/channel-service",
     "room-service": "apps/room-service",
     "user-service": "apps/user-service"
