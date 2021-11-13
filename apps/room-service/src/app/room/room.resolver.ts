@@ -29,14 +29,14 @@ export class RoomResolver {
   @Query(() => [Room], { name: "rooms" })
   async findAll(
     @Args("limit", { nullable: true }) take: number = 10,
-    @Args("offset", { nullable: true }) skip: number = 0,
+    @Args("offset", { nullable: true }) skip: number = 0
   ): Promise<Room[]> {
     return await this.roomService.findAll({ take, skip });
   }
 
   @Query(() => Room, { name: "room" })
   async findById(
-    @Args("room_id", { type: () => String }) room_id: string,
+    @Args("room_id", { type: () => String }) room_id: string
   ): Promise<Room> {
     try {
       return await this.roomService.findById(room_id);
@@ -49,7 +49,7 @@ export class RoomResolver {
   @Mutation(() => Boolean, { name: "update_room" })
   async updateRoom(
     @Args("room_id") room_id: string,
-    @Args("data") data: UpdateRoomInput,
+    @Args("data") data: UpdateRoomInput
   ): Promise<Boolean> {
     try {
       await this.roomService.update(room_id, data);
@@ -61,7 +61,7 @@ export class RoomResolver {
 
   @Mutation(() => Boolean, { name: "delete_room" })
   async deleteRoom(
-    @Args("room_id", { type: () => String }) room_id: string,
+    @Args("room_id", { type: () => String }) room_id: string
   ): Promise<Boolean> {
     try {
       await this.roomService.delete(room_id);
