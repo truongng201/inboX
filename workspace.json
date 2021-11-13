@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "user-service": "apps/user-service"
+  }
+}
